@@ -13,10 +13,11 @@
 * */
 
 const puppeteer = require('puppeteer');
+const schedule = require('node-schedule');
 
-const { rename_picture ,compare_picture, check_picture_exit, delete_picture } = require('./src/picture_utils');
+const { rename_picture, compare_picture, check_picture_exit, delete_picture } = require('./src/picture_utils');
 const { log, create_base_error, create_base_info } = require('./src/log');
-const { NOTE_MAP, NEXT_PICTURE_SUFFIX, PREV_PICTURE_SUFFIX, DIR_PATH } = require('./src/constant');
+const { CHECK_INTERVAL ,NOTE_MAP, NEXT_PICTURE_SUFFIX, PREV_PICTURE_SUFFIX, DIR_PATH } = require('./src/constant');
 
 // 拉取picture
 const get_picture = async (name, url) => {
@@ -69,7 +70,6 @@ main = () => {
 
           // 将nextPicture改名为prevPicture
           rename_picture(next_picture_path, prev_picture_path);
-
         }
       };
 
@@ -87,8 +87,9 @@ main = () => {
   });
 };
 
-// schedule(main, interval)
 // main定时执行
-// TODO:bai
-
-main();
+schedule.scheduleJob(CHECK_INTERVAL, () => {
+  const now = new Date();
+  log(create_base_info(`${now} 检查更新`));
+  main();
+});

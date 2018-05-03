@@ -18,11 +18,15 @@ const NOTE_MAP = {
   诡秘之主: 'https://book.qidian.com/info/1010868264#Catalog'
 };
 
+// 定时任务的时间间隔
+const CHECK_INTERVAL = '* /30 * * * *';
+
 module.exports = {
   DIR_PATH,
   PREV_PICTURE_SUFFIX,
   NEXT_PICTURE_SUFFIX,
   NOTE_MAP,
-  PICTURE_TOLERANCE
+  PICTURE_TOLERANCE,
+  CHECK_INTERVAL,
 }
 
