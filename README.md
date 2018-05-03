@@ -1,5 +1,10 @@
 # 小说更新
 
+## 注意事项
+1. 使用了gm，需要安装graphicsmagick
+   > http://www.icafebolger.com/linux/linuxgraphicsmagic.html
+2. 使用了puppetter，在centerOs等linux上需要安装依赖，同时不可以使用sandbox
+
 ## 基本功能
 
 1. 将小说的网址（url）作为目标 (完成)
