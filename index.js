@@ -17,7 +17,8 @@ const schedule = require('node-schedule');
 
 const { rename_picture, compare_picture, check_picture_exit, delete_picture } = require('./src/picture_utils');
 const { log, create_base_error, create_base_info } = require('./src/log');
-const { CHECK_INTERVAL ,NOTE_MAP, NEXT_PICTURE_SUFFIX, PREV_PICTURE_SUFFIX, DIR_PATH } = require('./src/constant');
+const { send_mail, get_mail_option } = require('./src/mail');
+const { CHECK_INTERVAL, NOTE_MAP, NEXT_PICTURE_SUFFIX, PREV_PICTURE_SUFFIX, DIR_PATH } = require('./src/constant');
 
 // 拉取picture
 const get_picture = async (name, url) => {
@@ -63,7 +64,7 @@ main = () => {
           log(create_base_info(`<<${note_name}>>更新了`));
 
           // 发送mail，通知我小说更新了
-          // TODO:bai
+          send_mail(get_mail_option(`<<${note_name}>>更新了`));
 
           // 删除prevPicture
           delete_picture(prev_picture_path);
@@ -82,7 +83,7 @@ main = () => {
       log(create_base_info(`新小说<<${note_name}>>`));
 
       // 通知我，这是新加的小说
-      // TODO:bai
+      send_mail(get_mail_option(`新小说<<${note_name}>>`));
     }
   });
 };
