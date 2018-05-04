@@ -19,7 +19,7 @@ const NOTE_MAP = {
 };
 
 // 定时任务的时间间隔
-const CHECK_INTERVAL = '* /30 * * * *';
+const CHECK_INTERVAL = '59 30 * * * *';
 
 module.exports = {
   DIR_PATH,

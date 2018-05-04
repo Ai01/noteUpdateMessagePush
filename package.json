@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start ./index.js",
+    "start": "node ./index.js",
     "dev": "pm2 start ./index.js -i 4",
     "debug": "node --inspect-brk ./index.js"
   },
