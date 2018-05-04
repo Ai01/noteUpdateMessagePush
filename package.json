@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "dev": "pm2 start ./index.js -i 4",
+    "dev": "pm2 start ./index.js",
     "debug": "node --inspect-brk ./index.js"
   },
   "author": "",
