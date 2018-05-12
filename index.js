@@ -23,7 +23,7 @@ const { CHECK_INTERVAL, NOTE_MAP, NEXT_PICTURE_SUFFIX, PREV_PICTURE_SUFFIX, DIR_
 // 拉取picture
 const get_picture = async (name, url) => {
   try {
-    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.goto(url);
 
@@ -64,13 +64,22 @@ main = () => {
           log(create_base_info(`<<${note_name}>>更新了`));
 
           // 发送mail，通知我小说更新了
-          send_mail(get_mail_option(`<<${note_name}>>更新了`));
+          const mail_option = get_mail_option(null, {
+            subject: `<<${note_name}>>更新了`,
+            html: `<a href="${note_url}" >${note_name}</a>`,
+            attachments: {
+              filename: `${note_name}.png`,
+              path: next_picture_path,
+            },
+          });
 
-          // 删除prevPicture
-          delete_picture(prev_picture_path);
+          send_mail(mail_option, () => {
+            // 删除prevPicture
+            delete_picture(prev_picture_path);
 
-          // 将nextPicture改名为prevPicture
-          rename_picture(next_picture_path, prev_picture_path);
+            // 将nextPicture改名为prevPicture
+            rename_picture(next_picture_path, prev_picture_path);
+          });
         }
       };
 
@@ -83,12 +92,21 @@ main = () => {
       log(create_base_info(`新小说<<${note_name}>>`));
 
       // 通知我，这是新加的小说
-      send_mail(get_mail_option(`新小说<<${note_name}>>`));
+      const mail_option = get_mail_option(null, {
+        subject: `新小说<<${note_name}>>`,
+        html: `<a href="${note_url}" >${note_name}</a>`,
+        attachments: {
+          filename: `${note_name}.png`,
+          path: prev_picture_path,
+        },
+      });
+
+      send_mail(mail_option);
     }
   });
 };
 
-// main定时执行
+//main定时执行
 schedule.scheduleJob(CHECK_INTERVAL, () => {
   const now = new Date();
   log(create_base_info(`${now} 检查更新`));

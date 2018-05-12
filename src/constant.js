@@ -15,7 +15,8 @@ const PICTURE_TOLERANCE = 0.001;
 const NOTE_MAP = {
   星辰之主: 'http://www.booktxt.net/2_2982/',
   打开你的任务日志: 'http://www.biqugev.com/27_27360/',
-  诡秘之主: 'https://book.qidian.com/info/1010868264#Catalog'
+  诡秘之主: 'https://book.qidian.com/info/1010868264#Catalog',
+  黑龙法典: 'https://book.qidian.com/info/1011393337#Catalog'
 };
 
 // 定时任务的时间间隔
