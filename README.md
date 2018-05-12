@@ -16,6 +16,7 @@
 7. 对广告的解决方法
 8. config文件
 9. 将log改变为真的log，而不是console.log
+10. pictures文件夹的检查 (完成)
 
 
 

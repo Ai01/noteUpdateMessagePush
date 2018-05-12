@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "dev": "pm2 start ./index.js",
+    "prepare": "node ./scripts/pictures_folder_exist.js",
+    "start": "npm run preapre && node ./index.js",
+    "dev": "npm run prepare && pm2 start ./index.js",
     "debug": "node --inspect-brk ./index.js"
   },
   "author": "",
