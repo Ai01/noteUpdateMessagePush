@@ -1,6 +1,15 @@
 # 小说更新
 
+## 使用
+
+### 部署
+1. npm run dev
+
+## 本地开发
+2. npm run start
+
 ## 注意事项
+
 1. 使用了gm，需要安装graphicsmagick
    > http://www.icafebolger.com/linux/linuxgraphicsmagic.html
 2. 使用了puppetter，在centerOs等linux上需要安装依赖，同时不可以使用sandbox
