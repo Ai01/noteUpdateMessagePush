@@ -10,22 +10,22 @@ const transport = node_mailer.createTransport({
   secureConnection: true,
   auth: {
     user: '2911403289@qq.com',
-    pass: 'xprcknnjjgdqdfij', // qq邮箱授权码，不是密码
+    pass: 'hwgpvfyhcsjgdfdj', // qq邮箱授权码，不是密码
   },
 });
 
-const send_mail = mail_option => {
+const send_mail = (mail_option, cb) => {
   transport.sendMail(mail_option, (err, info) => {
     if (err) {
       log(create_base_error('发送邮件错误', err));
       return;
     }
-    // log(create_base_info(info))
     log(create_base_info(`发送邮件成功`));
+    cb();
   });
 };
 
-const get_mail_option = (content, target_mail) => {
+const get_mail_option = (target_mail, content ) => {
   const base_mail_option = {
     from: '2911403289@qq.com',
     subject: '小说更新推送',
@@ -33,7 +33,7 @@ const get_mail_option = (content, target_mail) => {
 
   return Object.assign({}, base_mail_option, {
     to: target_mail || 'baihaihui131225@gmail.com',
-    text: content.toString(),
+    ...content
   });
 };
 
