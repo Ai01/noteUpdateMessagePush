@@ -23,7 +23,7 @@ const { CHECK_INTERVAL, NOTE_MAP, NEXT_PICTURE_SUFFIX, PREV_PICTURE_SUFFIX, DIR_
 // 拉取picture
 const get_picture = async (name, url) => {
   try {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
     const page = await browser.newPage();
     await page.goto(url);
 
