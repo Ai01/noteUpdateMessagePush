@@ -9,7 +9,7 @@ const PREV_PICTURE_SUFFIX = 'prev';
 const NEXT_PICTURE_SUFFIX = 'next';
 
 // 图片是否相等判断标准,大于这个值就不相等
-const PICTURE_TOLERANCE = 0.000;
+const PICTURE_TOLERANCE = 0.001;
 
 // noteMap 小说的map数据机构。小说名为key，url为value
 const NOTE_MAP = {
