@@ -19,7 +19,7 @@ const TARGET_MAIL = config ? config.TARGET_MAIL : {};
 const SOURCE_MAIL = config ? config.SOURCE_MAIL : {}
 
 // 定时任务的时间间隔
-const CHECK_INTERVAL = '41 * * * * *';
+const CHECK_INTERVAL = '41 30 * * * *';
 
 
 module.exports = {
