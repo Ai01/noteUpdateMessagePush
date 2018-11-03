@@ -37,7 +37,7 @@ const compare_picture = (prevPicturePath, nextPicturePath, cb) => {
 }
 
 // 检查picture是不是存在
-const check_picture_exit = picture_url => {
+const check_picture_exist = picture_url => {
   if (!picture_url) return null;
   return fs.existsSync(picture_url);
 };
@@ -60,6 +60,6 @@ const rename_picture = (old_picture_url, new_picture_url) => {
 module.exports = {
   compare_picture,
   delete_picture,
-  check_picture_exit,
+  check_picture_exist,
   rename_picture,
 };

@@ -1,4 +1,5 @@
 const node_mailer = require('nodemailer');
+const { SOURCE_MAIL, TARGET_MAIL } = require('./constant');
 
 const { log, create_base_error, create_base_info } = require('./log');
 
@@ -9,8 +10,8 @@ const transport = node_mailer.createTransport({
   secure: true,
   secureConnection: true,
   auth: {
-    user: '2911403289@qq.com',
-    pass: 'hwgpvfyhcsjgdfdj', // qq邮箱授权码，不是密码
+    user: SOURCE_MAIL.address,
+    pass: SOURCE_MAIL.pass, // qq邮箱授权码，不是密码
   },
 });
 
@@ -27,12 +28,12 @@ const send_mail = (mail_option, cb) => {
 
 const get_mail_option = (target_mail, content ) => {
   const base_mail_option = {
-    from: '2911403289@qq.com',
+    from: SOURCE_MAIL.address,
     subject: '小说更新推送',
   };
 
   return Object.assign({}, base_mail_option, {
-    to: target_mail || 'baihaihui131225@gmail.com',
+    to: target_mail || TARGET_MAIL.address,
     ...content
   });
 };

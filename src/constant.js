@@ -1,4 +1,4 @@
-// 常量
+const config = require('./config.json');
 const path = require('path');
 
 // 图片保存目录
@@ -12,15 +12,15 @@ const NEXT_PICTURE_SUFFIX = 'next';
 const PICTURE_TOLERANCE = 0.001;
 
 // noteMap 小说的map数据机构。小说名为key，url为value
-const NOTE_MAP = {
-  星辰之主: 'http://www.booktxt.net/2_2982/',
-  打开你的任务日志: 'http://www.biqugev.com/27_27360/',
-  诡秘之主: 'https://www.biquge.com.tw/19_19485/',
-  黑龙法典: 'http://www.biquge.com.tw/19_19575/'
-};
+const NOTE_MAP = config ? config.NOTE_MAP : {};
+
+// 邮件信息
+const TARGET_MAIL = config ? config.TARGET_MAIL : {};
+const SOURCE_MAIL = config ? config.SOURCE_MAIL : {}
 
 // 定时任务的时间间隔
-const CHECK_INTERVAL = '59 30 * * * *';
+const CHECK_INTERVAL = '41 * * * * *';
+
 
 module.exports = {
   DIR_PATH,
@@ -29,5 +29,8 @@ module.exports = {
   NOTE_MAP,
   PICTURE_TOLERANCE,
   CHECK_INTERVAL,
+  CONFIG_FILE_PATH,
+  TARGET_MAIL,
+  SOURCE_MAIL
 }
 

@@ -1,0 +1,16 @@
+{
+  "NOTE_MAP": {
+    "星辰之主": "http://www.booktxt.net/2_2982/",
+    "打开你的任务日志": "http://www.biqugev.com/27_27360/",
+    "诡秘之主": "https://www.biquge.com.tw/19_19485/",
+    "黑龙法典": "http://www.biquge.com.tw/19_19575/"
+  },
+  "TARGET_MAIL": {
+    "address":  "baihaihui131225@gmail.com"
+  },
+  "SOURCE_MAIL": {
+    "address": "2911403289@qq.com",
+    "password": "rtrujefmjqwedfaf",
+    "host": "smtp.qq.com"
+  }
+}
