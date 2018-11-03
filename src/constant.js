@@ -29,8 +29,7 @@ module.exports = {
   NOTE_MAP,
   PICTURE_TOLERANCE,
   CHECK_INTERVAL,
-  CONFIG_FILE_PATH,
   TARGET_MAIL,
   SOURCE_MAIL
-}
+};
 
