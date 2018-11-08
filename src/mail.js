@@ -11,7 +11,7 @@ const transport = node_mailer.createTransport({
   secureConnection: true,
   auth: {
     user: SOURCE_MAIL.address,
-    pass: SOURCE_MAIL.pass, // qq邮箱授权码，不是密码
+    pass: SOURCE_MAIL.password, // qq邮箱授权码，不是密码
   },
 });
 
